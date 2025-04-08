@@ -952,11 +952,30 @@ header nav a:hover {
     margin: 5px 0;
   }
 
-  #player-name {
-    width: 80%;
-    margin-bottom: 15px;
-  }
+/* Add to your styles.css */
+#player-name {
+  -webkit-user-select: text; /* Allow text selection */
+  user-select: text;
+  font-size: 18px;
+  padding: 15px; /* Larger tap target */
+  min-height: 50px; /* Better touch area */
+}
 
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+  button, input {
+    min-height: 50px;
+    min-width: 120px;
+    font-size: 18px;
+  }
+  
+  /* Prevent touch delay */
+  a, button, input {
+    touch-action: manipulation;
+  }
+  
+  
+}
   #category-screen button {
     width: 80%;
     margin: 5px auto;
@@ -1151,4 +1170,24 @@ header nav a:hover {
 .back-btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
+}
+
+/* Mobile Fixes */
+@media screen and (max-width: 768px) {
+  #player-name {
+    font-size: 20px;
+    padding: 15px;
+    min-height: 60px;
+  }
+  
+  button {
+    min-height: 60px;
+    min-width: 150px;
+    font-size: 20px;
+  }
+  
+  .balloon {
+    width: 70px !important;
+    height: 90px !important;
+  }
 }
