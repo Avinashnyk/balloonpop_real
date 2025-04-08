@@ -899,6 +899,17 @@ header nav a:hover {
     overflow: auto;
     height: auto;
     min-height: 100vh;
+    width: 100%;
+    height: 100%;
+  }
+  #game-container {
+    touch-action: manipulation;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
   }
 
   header {
@@ -954,9 +965,9 @@ header nav a:hover {
   }
 
   .balloon {
-    width: 60px;
-    height: 80px;
-    font-size: 24px;
+    width: 50px !important;
+    height: 70px !important;
+    font-size: 20px !important;
   }
 
   #shapes-hint, #all-hint, #letters-hint, #numbers-hint {
@@ -979,7 +990,7 @@ header nav a:hover {
     right: 10px;
   }
 
-  #affiliate-banner {
+ /* #affiliate-banner {
     flex-direction: column;
     width: 90%;
     left: 5%;
@@ -989,6 +1000,7 @@ header nav a:hover {
   .affiliate-item {
     margin-bottom: 10px;
   }
+*/
 
   button, input {
     -webkit-appearance: none;
