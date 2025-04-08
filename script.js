@@ -99,6 +99,18 @@ let gameModeSelected = false;
 let leaderboardData = JSON.parse(localStorage.getItem('leaderboard')) || [];
 let achievementsData = JSON.parse(localStorage.getItem('achievements')) || {};
 
+// Add this at the start of your script.js
+document.addEventListener('DOMContentLoaded', function() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Mobile-specific initialization
+    alert("Mobile mode activated"); // Remove after testing
+    initMobile();
+  }
+});
+
+function initMobile() {
+  // Any mobile-specific adjustments
+}
 // Initialize the game
 function initGame() {
   initializeLeaderboard();
@@ -411,6 +423,14 @@ function handleBalloonPop(balloon, content, balloonType) {
     }
   }
   
+
+
+// Mobile-friendly event listeners:
+balloon.addEventListener('click', handleBalloonPop);
+balloon.addEventListener('touchend', function(e) {
+  e.preventDefault();
+  handleBalloonPop(balloon);
+}, { passive: false });
   // Handle different balloon types
   switch (balloonType) {
     case 'rainbow':
