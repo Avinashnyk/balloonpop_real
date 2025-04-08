@@ -118,6 +118,29 @@ function initGame() {
   setupEventListeners();
   showWelcomeBackground();
 }
+function setupMobileControls() {
+  // Make buttons work on touch devices
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      this.click();
+    });
+  });
+  
+  // Make name input work
+  const nameInput = document.getElementById('player-name');
+  nameInput.addEventListener('touchend', function() {
+    this.focus();
+  });
+  
+  // Make balloons pop on touch
+  document.addEventListener('touchend', function(e) {
+    if (e.target.classList.contains('balloon')) {
+      e.preventDefault();
+      e.target.click();
+    }
+  }, { passive: false });
+}
 
 function setupEventListeners() {
   // Main game buttons
@@ -860,4 +883,7 @@ function showThemeBackground() {
 }
 
 // Initialize the game
-initGame();
+window.onload = function() {
+  setupMobileControls(); // Add this line
+  initGame(); // Your existing initialization
+};
